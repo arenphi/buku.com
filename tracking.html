@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tracking - Toko Buku</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">buku.com</div>
+
+            <nav class="main-nav">
+                <a href="stok.html" class="nav-item">Stok / Katalog</a>
+                <a href="tracking.html" class="nav-item">Tracking Pengiriman</a>
+                <a href="checkout.html" class="nav-item">Pemesanan</a>
+                <a href="history.html" class="nav-item">History</a>
+            </nav>
+
+            <!-- Cart button (opens modal) -->
+            <button id="cart-btn" class="cart-btn" onclick="showModal('modal-cart')" aria-label="Keranjang" title="Keranjang">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span class="cart-badge" id="cart-badge">0</span>
+            </button>
+            <!-- Use an anchor for direct navigation to login.html (works without JavaScript); role="button" keeps semantics for assistive tech -->
+            <a href="login.html" id="logout-btn" class="danger" role="button" aria-label="Logout">Logout</a>
+        </div>
+
+    </div>
+
+    <!-- Modal Keranjang (copied from checkout for consistency) -->
+    <div class="modal-backdrop" onclick="hideModal()">
+        <div class="modal" id="modal-cart" onclick="event.stopPropagation()">
+            <h3>Checkout</h3>
+            <div class="modal-split-layout">
+                <div class="modal-split-section">
+                    <h4>Keranjang Anda</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Judul</th>
+                                <th class="qty-col">Qty</th>
+                                <th class="price-col">Harga</th>
+                                <th class="price-col">Total</th>
+                                <th class="action-col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-body-modal"></tbody>
+                    </table>
+                    <div class="cart-summary">
+                        <div class="small">Subtotal</div>
+                        <div id="cart-subtotal-modal" class="subtotal">Rp 0</div>
+                    </div>
+                </div>
+                <div class="modal-split-section">
+                    <h4>Informasi Pemesan</h4>
+                    <form id="order-form">
+                        <label>Nama<input id="order-name" required></label>
+                        <label>Alamat<textarea required></textarea></label>
+                        <label>Pembayaran<select><option>Transfer</option><option>COD</option></select></label>
+                        <div class="actions">
+                            <button type="button" onclick="alert('Pesanan disimpan (simulasi)')">Proses Pembayaran</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="secondary" onclick="hideModal()">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="card" style="max-width: 600px; margin: 40px auto;">
+        <form id="tracking-form" style="max-width: 400px; margin: 24px auto 0;">
+            <label>Nomor Delivery Order<input id="do-number" required placeholder="Contoh: DO001"></label>
+            <div style="margin-top:30px; text-align: center;"><button type="submit">Cari Status Pengiriman</button></div>
+        </form>
+
+        <div id="tracking-result" style="margin-top:24px"></div>
+    </div>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+
+</html>
